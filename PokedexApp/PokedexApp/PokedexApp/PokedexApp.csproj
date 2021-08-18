@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs" Version="7.1.0.514" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Prism.Core" Version="7.1.0.431" />
     <PackageReference Include="Prism.DryIoc.Forms" Version="7.1.0.431" />

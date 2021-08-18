@@ -1,16 +1,19 @@
 ﻿using Newtonsoft.Json;
 using PokedexApp.Models;
+using Prism.Services;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace PokedexApp.Services.Request
 {
     public class RequestService : IRequestService
     {
         readonly HttpClient httpClient;
+        readonly IPageDialogService _pageDialogService;
 
         private List<Pokemon> _pokemons;
         public List<Pokemon> Pokemons
@@ -20,27 +23,37 @@ namespace PokedexApp.Services.Request
         }
 
 
-        public RequestService()
+        public RequestService(
+            IPageDialogService pageDialogService)
         {
             httpClient = new HttpClient();
+            _pageDialogService = pageDialogService;
             Pokemons = new List<Pokemon>();
         }
 
         public async Task<List<Pokemon>> GetPokemons(decimal quantidade, decimal indice)
         {
-            quantidade++;
-            for (decimal i = indice; i < quantidade; i++)
+            Pokemons.Clear();
+            if(Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
-                Uri uri = new Uri($"https://pokeapi.co/api/v2/pokemon/{i}/");
-                HttpResponseMessage response = await httpClient.GetAsync(uri);
-                if (response.IsSuccessStatusCode)
+                await _pageDialogService.DisplayAlertAsync("Alerta", "É necessário estar conectado a internet", "OK");
+                return null;
+            }
+            else
+            {
+                quantidade++;
+                for (decimal i = indice; i < quantidade; i++)
                 {
-                    string content = await response.Content.ReadAsStringAsync();
-                    var pokemon = JsonConvert.DeserializeObject<Pokemon>(content);
-                    Pokemons.Add(pokemon);
+                    Uri uri = new Uri($"https://pokeapi.co/api/v2/pokemon/{i}/");
+                    HttpResponseMessage response = await httpClient.GetAsync(uri);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string content = await response.Content.ReadAsStringAsync();
+                        var pokemon = JsonConvert.DeserializeObject<Pokemon>(content);
+                        Pokemons.Add(pokemon);
+                    }
                 }
             }
-            
             return Pokemons;
         }
     }

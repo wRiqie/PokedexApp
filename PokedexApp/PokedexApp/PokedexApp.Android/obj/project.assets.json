@@ -2,6 +2,31 @@
   "version": 3,
   "targets": {
     "MonoAndroid,Version=v11.0": {
+      "Acr.UserDialogs/7.1.0.514": {
+        "type": "package",
+        "dependencies": {
+          "AndHUD": "1.4.2",
+          "Xamarin.Google.Android.Material": "1.0.0"
+        },
+        "frameworkAssemblies": [
+          "Java.Interop"
+        ],
+        "compile": {
+          "lib/monoandroid10.0/Acr.UserDialogs.dll": {}
+        },
+        "runtime": {
+          "lib/monoandroid10.0/Acr.UserDialogs.dll": {}
+        }
+      },
+      "AndHUD/1.4.2": {
+        "type": "package",
+        "compile": {
+          "lib/MonoAndroid81/AndHUD.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid81/AndHUD.dll": {}
+        }
+      },
       "DryIoc.dll/3.0.2": {
         "type": "package",
         "compile": {
@@ -1031,6 +1056,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Acr.UserDialogs": "7.1.0.514",
           "Newtonsoft.Json": "13.0.1",
           "Prism.Core": "7.1.0.431",
           "Prism.DryIoc.Forms": "7.1.0.431",
@@ -1047,6 +1073,53 @@
     }
   },
   "libraries": {
+    "Acr.UserDialogs/7.1.0.514": {
+      "sha512": "jSjxoOtwS4qHXRpRJxt5anCwRxga+RK22N0w/hR4wLwmxfVBv7eVHX+BsMYFF/Qe6SJGO5dJDcIyh/7+gbEkCA==",
+      "type": "package",
+      "path": "acr.userdialogs/7.1.0.514",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "acr.userdialogs.7.1.0.514.nupkg.sha512",
+        "acr.userdialogs.nuspec",
+        "lib/monoandroid10.0/Acr.UserDialogs.dll",
+        "lib/monoandroid10.0/Acr.UserDialogs.pdb",
+        "lib/monoandroid10.0/Acr.UserDialogs.xml",
+        "lib/monoandroid90/Acr.UserDialogs.dll",
+        "lib/monoandroid90/Acr.UserDialogs.pdb",
+        "lib/monoandroid90/Acr.UserDialogs.xml",
+        "lib/netstandard2.0/Acr.UserDialogs.dll",
+        "lib/netstandard2.0/Acr.UserDialogs.pdb",
+        "lib/netstandard2.0/Acr.UserDialogs.xml",
+        "lib/uap10.0.16299/Acr.UserDialogs.dll",
+        "lib/uap10.0.16299/Acr.UserDialogs.pdb",
+        "lib/uap10.0.16299/Acr.UserDialogs.pri",
+        "lib/uap10.0.16299/Acr.UserDialogs.xml",
+        "lib/uap10.0.16299/Acr.UserDialogs/Acr.UserDialogs.xr.xml",
+        "lib/xamarinios10/Acr.UserDialogs.dll",
+        "lib/xamarinios10/Acr.UserDialogs.pdb",
+        "lib/xamarinios10/Acr.UserDialogs.xml",
+        "lib/xamarinmac20/Acr.UserDialogs.dll",
+        "lib/xamarinmac20/Acr.UserDialogs.pdb",
+        "lib/xamarinmac20/Acr.UserDialogs.xml",
+        "lib/xamarintvos10/Acr.UserDialogs.dll",
+        "lib/xamarintvos10/Acr.UserDialogs.pdb",
+        "lib/xamarintvos10/Acr.UserDialogs.xml",
+        "readme.txt"
+      ]
+    },
+    "AndHUD/1.4.2": {
+      "sha512": "talAByCb4/g2hXaFXuWFqb/bxvpUecX3V04WO1D3l11ghR0R2eNMi1GhP4u+36tOgKk738+78UxyugQNyPP7Vw==",
+      "type": "package",
+      "path": "andhud/1.4.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "andhud.1.4.2.nupkg.sha512",
+        "andhud.nuspec",
+        "lib/MonoAndroid81/AndHUD.dll"
+      ]
+    },
     "DryIoc.dll/3.0.2": {
       "sha512": "JEAIt/4SmRTWXqcLJUyX31NyjNZTeveb35B/N7Qo2HRBn5ixQm3hzN9TXQu/vTSUv0MwnOiQaXjlwyqTBN7CZQ==",
       "type": "package",
@@ -2319,6 +2392,7 @@
   },
   "projectFileDependencyGroups": {
     "MonoAndroid,Version=v11.0": [
+      "Acr.UserDialogs >= 7.1.0.514",
       "Newtonsoft.Json >= 13.0.1",
       "PokedexApp >= 1.0.0",
       "Prism.Core >= 7.1.0.431",
@@ -2369,6 +2443,10 @@
     "frameworks": {
       "monoandroid11.0": {
         "dependencies": {
+          "Acr.UserDialogs": {
+            "target": "Package",
+            "version": "[7.1.0.514, )"
+          },
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.1, )"

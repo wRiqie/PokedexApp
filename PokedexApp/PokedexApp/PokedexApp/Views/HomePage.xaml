@@ -7,12 +7,24 @@
     <ContentPage.Content>
         <StackLayout>
             <CollectionView ItemsSource="{Binding Pokemons}">
+                <CollectionView.Footer>
+                    <FlexLayout>
+                        <Button 
+                            Text="More"
+                            Command="{Binding MostrarMaisCommand}"/>
+                    </FlexLayout>
+                </CollectionView.Footer>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Label Text="{Binding Name}"/>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+            <ActivityIndicator 
+                HorizontalOptions="CenterAndExpand"
+                IsRunning="{Binding IsLoading}" 
+                IsVisible="{Binding IsLoading}"
+                Margin="0, 20"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
