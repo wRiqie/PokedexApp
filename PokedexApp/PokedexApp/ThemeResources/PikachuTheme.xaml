@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PokedexApp.ThemeResources.PikachuTheme">
+    <Color x:Key="Primary">#f6bd20</Color>
+    <Color x:Key="PrimaryDark">#de9400</Color>
+    <Color x:Key="Secondary">#9c5200</Color>
+    <Color x:Key="SecondaryDark">#623108</Color>
+    <Color x:Key="Terciary">#41414a</Color>
+    <Color x:Key="TerciaryDark">#292929</Color>
+    <Color x:Key="Light">#fff6a4</Color>
+</ResourceDictionary>
