@@ -1,4 +1,5 @@
-﻿using PokedexApp.Models;
+﻿using Acr.UserDialogs;
+using PokedexApp.Models;
 using PokedexApp.Services.Request;
 using Prism.Commands;
 using Prism.Navigation;

@@ -8,10 +8,15 @@
         <StackLayout>
             <CollectionView ItemsSource="{Binding Pokemons}">
                 <CollectionView.Footer>
-                    <FlexLayout>
+                    <FlexLayout Direction="Column">
                         <Button 
                             Text="More"
                             Command="{Binding MostrarMaisCommand}"/>
+                        <ActivityIndicator 
+                            HorizontalOptions="CenterAndExpand"
+                            IsRunning="{Binding IsLoading}" 
+                            IsVisible="{Binding IsLoading}"
+                            Margin="0, 20"/>
                     </FlexLayout>
                 </CollectionView.Footer>
                 <CollectionView.ItemTemplate>
@@ -20,11 +25,7 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-            <ActivityIndicator 
-                HorizontalOptions="CenterAndExpand"
-                IsRunning="{Binding IsLoading}" 
-                IsVisible="{Binding IsLoading}"
-                Margin="0, 20"/>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
