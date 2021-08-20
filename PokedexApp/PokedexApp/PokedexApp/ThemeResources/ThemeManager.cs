@@ -19,8 +19,6 @@ namespace PokedexApp.ThemeResources
             
         }
 
-        string name;
-
         /// <summary>
         /// Changes the theme of the app.
         /// Add additional switch cases for more themes you add to the app.

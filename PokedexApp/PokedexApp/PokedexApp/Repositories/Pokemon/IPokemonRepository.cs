@@ -13,5 +13,6 @@ namespace PokedexApp.Repositories.PokemonRepository
         ResultadoExecucaoEnum SaveAllPokemon(IEnumerable pokemons);
 
         Task<List<Pokemon>> GetAllPokemons();
+        Task<Pokemon> GetPokemon(decimal id);
     }
 }

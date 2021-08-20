@@ -1,11 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<xct:Popup xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-             Size="300, 300"
-             x:Class="PokedexApp.Popups.ThemePopup">
+<xct:Popup 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    Size="300, 300"
+    x:Class="PokedexApp.Popups.ThemePopup">
     <StackLayout>
+        <Label 
+            Text="Choose the theme"
+            FontSize="24"
+            HorizontalOptions="FillAndExpand"
+            Padding="5"
+            TextColor="#323232"
+            FontFamily="KleeSemi"
+            FontAttributes="Bold" />
         <Grid VerticalOptions="CenterAndExpand">
+            <Frame 
+                x:Name="meowBackground"
+                WidthRequest="100" 
+                HeightRequest="100" 
+                HasShadow="False" 
+                BackgroundColor="#b4acc5" 
+                CornerRadius="500" 
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
+            <Frame 
+                x:Name="bulbaBackground"
+                WidthRequest="100" 
+                HeightRequest="100" 
+                HasShadow="False" 
+                BackgroundColor="#bdff73" 
+                CornerRadius="500" 
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
+            <Frame 
+                x:Name="piBackground"
+                WidthRequest="100" 
+                HeightRequest="100" 
+                HasShadow="False" 
+                BackgroundColor="#fff6a4" 
+                CornerRadius="500" 
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
             <Image 
                 x:Name="bulbasaur"
                 Source="bulbasaur"
@@ -33,13 +69,25 @@
         </Grid>
         <StackLayout Spacing="5" Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="Center">
             <Button 
+                Margin="0, 0, 0, 5"
                 Text="Bulbasaur"
+                BackgroundColor="#184a4a"
+                TextColor="#62d5b4"
+                FontAttributes="Bold"
                 Clicked="BulbasaurTheme" />
             <Button 
+                Margin="0, 0, 0, 5"
                 Text="MewTwo"
+                BackgroundColor="#392052"
+                TextColor="#9441bd"
+                FontAttributes="Bold"
                 Clicked="MewTwoTheme" />
             <Button 
+                Margin="0, 0, 0, 5"
                 Text="Pikachu"
+                FontAttributes="Bold"
+                BackgroundColor="#623108"
+                TextColor="#de9400"
                 Clicked="PikachuTheme" />
         </StackLayout>
     </StackLayout>

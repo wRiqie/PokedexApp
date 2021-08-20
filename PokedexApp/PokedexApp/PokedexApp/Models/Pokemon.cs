@@ -8,7 +8,7 @@ namespace PokedexApp.Models
     public class Pokemon
     {
         [PrimaryKey]
-        public decimal? Id { get; set; }
+        public decimal Id { get; set; }
         public string Name { get; set; }
         public byte[] Photo { get; set; }
         public string TypeName { get; set; }

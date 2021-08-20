@@ -39,5 +39,8 @@ namespace PokedexApp.Repositories.PokemonRepository
                 return ResultadoExecucaoEnum.erro;
             }
         }
+
+        public async Task<Pokemon> GetPokemon(decimal id)
+            => _sqlite.GetPokemon(id);
     }
 }

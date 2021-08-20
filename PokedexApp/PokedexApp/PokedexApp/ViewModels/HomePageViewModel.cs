@@ -42,13 +42,6 @@ namespace PokedexApp.ViewModels
             set { SetProperty(ref _isLoading, value); }
         }
 
-        private bool _moreEnable;
-        public bool MoreEnable
-        {
-            get { return _moreEnable; }
-            set { SetProperty(ref _moreEnable, value); }
-        }
-
         private int _indice;
         public int Indice
         {
@@ -63,10 +56,16 @@ namespace PokedexApp.ViewModels
             set { SetProperty(ref _indiceFinal, value); }
         }
 
+        private int _count;
+        public int Count
+        {
+            get { return _count; }
+            set { SetProperty(ref _count, value); }
+        }
+
         public ICommand MostrarMaisCommand { get; set; }
-        public ICommand BulbaCommand { get; set; }
-        public ICommand MeowCommand { get; set; }
-        public ICommand PikachuCommand { get; set; }
+        public ICommand DetalhesCommand { get; set; }
+        public ICommand IrParaPesquisaCommand { get; set; }
         public HomePageViewModel(
             IRequestService requestService,
             IPageDialogService pageDialogService,
@@ -78,43 +77,30 @@ namespace PokedexApp.ViewModels
             _pageDialogService = pageDialogService;
             _pokemonRepository = pokemonRepository;
             IsLoading = false;
-            MoreEnable = true;
             Pokemons = new ObservableCollection<Pokemon>();
             Indice = 1;
             IndiceFinal = 50;
+            Count = 0;
 
             MostrarMaisCommand = new DelegateCommand(async () => await MostrarMaisCommandExecute());
-            BulbaCommand = new DelegateCommand(async () => await BulbaCommandExecute());
-            MeowCommand = new DelegateCommand(async () => await MeowCommandExecute());
-            PikachuCommand = new DelegateCommand(async () => await PikachuCommandExecute());
-        }
-
-        private async Task PikachuCommandExecute()
-        {
-            ThemeManager.ChangeTheme(Themes.Pikachu);
-        }
-
-        private async Task MeowCommandExecute()
-        {
-            ThemeManager.ChangeTheme(Themes.MeowTwo);
-        }
-
-        private async Task BulbaCommandExecute()
-        {
-            ThemeManager.ChangeTheme(ThemeManager.Themes.Bulbasaur);
+            DetalhesCommand = new DelegateCommand<Pokemon>(async (pokemon) => await DetalhesCommandExecute(pokemon));
+            IrParaPesquisaCommand = new DelegateCommand(async () => await IrParaPesquisaCommandExecute());
         }
 
         public override async void OnNavigatedTo(INavigationParameters parameters)
         {
             base.OnNavigatedTo(parameters);
             IsLoading = true;
-            MoreEnable = false;
             if (Pokemons.Count == 0)
             {
                 await RecuperarPokemons();
             }
             IsLoading = false;
-            MoreEnable = true;
+        }
+
+        private async Task DetalhesCommandExecute(Pokemon pokemon)
+        {
+            await NavigationService.NavigateAsync($"PokemonDetailsPage?Id={pokemon.Id}");
         }
 
         private async Task RecuperarPokemons()
@@ -156,44 +142,63 @@ namespace PokedexApp.ViewModels
         {
             try
             {
-                IsLoading = true;
-                MoreEnable = false;
-                Indice = Pokemons.Count + 1;
-                IndiceFinal = Pokemons.Count + 50;
-                var pokemons = await _requestService.GetPokemons(IndiceFinal, Indice);
-                if (pokemons != null && pokemons.Count > 0)
+                if(Connectivity.NetworkAccess == NetworkAccess.Internet)
                 {
-                    var res = _pokemonRepository.SaveAllPokemon(pokemons);
-                    if (res == ResultadoExecucaoEnum.sucesso)
+                    if(Pokemons.Count > 0)
                     {
-                        foreach (var pokemon in pokemons.Where(x => x.Id > Pokemons.Count))
+                        if(Count == 0)
                         {
-                            Pokemons.Add(pokemon);
+                            Count++;
+                            IsLoading = true;
+                            Indice = Pokemons.Count + 1;
+                            IndiceFinal = Pokemons.Count + 50;
+                            var pokemons = await _requestService.GetPokemons(IndiceFinal, Indice);
+                            if (pokemons != null && pokemons.Count > 0)
+                            {
+                                var res = _pokemonRepository.SaveAllPokemon(pokemons);
+                                if (res == ResultadoExecucaoEnum.sucesso)
+                                {
+                                    foreach (var pokemon in pokemons.Where(x => x.Id > Pokemons.Count))
+                                    {
+                                        Pokemons.Add(pokemon);
+                                    }
+                                    IsLoading = false;
+                                    await Task.Delay(1000);
+                                    Count = 0;
+                                    return true;
+                                }
+                                else
+                                {
+                                    await _pageDialogService.DisplayAlertAsync("Alerta", "Ocorreu um erro", "OK");
+                                    IsLoading = false;
+                                    Count = 0;
+                                    return false;
+                                }
+                            }
+                            IsLoading = false;
+                            await _pageDialogService.DisplayAlertAsync("Alerta", "Não foi possível trazer mais pokemons!", "OK");
+                            Count = 0;
+                            return true;
                         }
-                        IsLoading = false;
-                        MoreEnable = true;
-                        return true;
-                    }
-                    else 
-                    {
-                        await _pageDialogService.DisplayAlertAsync("Alerta", "Ocorreu um erro", "OK");
-                        IsLoading = false;
-                        MoreEnable = true;
-                        return false;
                     }
                 }
-                IsLoading = false;
-                MoreEnable = true;
-                await _pageDialogService.DisplayAlertAsync("Alerta", "Não foi possível trazer mais pokemons!", "OK");
-                return true;
+                else
+                {
+                    Count = 0;
+                }
+                return false;
             }
             catch (Exception ex)
             {
                 IsLoading = false;
-                MoreEnable = true;
+                Count = 0;
                 await _pageDialogService.DisplayAlertAsync("Alerta", "Ocorreu um erro, tente novamente", "OK");
                 return false;
             }
+        }
+        private async Task IrParaPesquisaCommandExecute()
+        {
+            await NavigationService.NavigateAsync("SearchPage");
         }
     }
 }

@@ -1,23 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\Documents\\GitHub\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp.csproj": {}
+    "C:\\Users\\henrique.fernandes\\Downloads\\ProjetosEstudos\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\Documents\\GitHub\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp.csproj": {
+    "C:\\Users\\henrique.fernandes\\Downloads\\ProjetosEstudos\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Documents\\GitHub\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp.csproj",
+        "projectUniqueName": "C:\\Users\\henrique.fernandes\\Downloads\\ProjetosEstudos\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp.csproj",
         "projectName": "PokedexApp",
-        "projectPath": "C:\\Users\\Usuario\\Documents\\GitHub\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Documents\\GitHub\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp\\obj\\",
+        "projectPath": "C:\\Users\\henrique.fernandes\\Downloads\\ProjetosEstudos\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp.csproj",
+        "packagesPath": "C:\\Users\\henrique.fernandes\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\henrique.fernandes\\Downloads\\ProjetosEstudos\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\henrique.fernandes\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -26,7 +29,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/nuget": {}
         },
         "frameworks": {
           "netstandard2.0": {
@@ -97,7 +101,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -41,11 +41,9 @@ namespace PokedexApp
         protected override async void OnInitialized()
         {
             InitializeComponent();
-            //var theme = (Themes)CrossSettings.Current.GetValueOrDefault("SelectedTheme", (int)Themes.MeowTwo);
-            
             await NavigationService.NavigateAsync("NavigationPage/HomePage");
-            //ThemeManager.ChangeTheme(theme);
             ThemeManager.LoadTheme();
+            
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -54,6 +52,8 @@ namespace PokedexApp
             containerRegistry.ResolveRepository();
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
+            containerRegistry.RegisterForNavigation<PokemonDetailsPage, PokemonDetailsPageViewModel>();
+            containerRegistry.RegisterForNavigation<SearchPage, SearchPageViewModel>();
         }
     }
 }

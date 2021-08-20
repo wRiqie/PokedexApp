@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:converters="clr-namespace:PokedexApp.Converters"
+             x:Class="PokedexApp.Views.SearchPage"
+             x:Name="search"
+             Title="Search">
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar 
+                Margin="0,0,10,0"
+                SearchCommand="{Binding PesquisarCommand}"
+                Placeholder="Search a pokemon"
+                Text="{Binding PalavraChave, Mode=OneWayToSource}" />
+            <!--<StackLayout Orientation="Horizontal">
+                <Label 
+                    Text="Busca Detalhada"
+                    FontFamily="KleeSemi"
+                    HorizontalOptions="EndAndExpand"
+                    VerticalTextAlignment="Center" />
+                <Switch 
+                    HorizontalOptions="End"
+                    OnColor="{DynamicResource SecondaryDark}"
+                    ThumbColor="{DynamicResource Primary}"
+                    IsToggled="{Binding Detalhado, Mode=TwoWay}"/>
+            </StackLayout>-->
+            
+            <CollectionView ItemsSource="{Binding PokemonsFiltrados}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <FlexLayout Direction="Row" AlignItems="Center" Padding="20">
+                            <FlexLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding Source={x:Reference search}, Path=BindingContext.DetalhesCommand}" 
+                                    CommandParameter="{Binding .}"/>
+                            </FlexLayout.GestureRecognizers>
+                            <Image 
+                                Source="{Binding Photo, Converter={converters:ByteToImageConverter}}"
+                                Margin="0, 0, 20, 0" 
+                                Scale="1.2" />
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Label 
+                                    Text="{Binding Name}"
+                                    FontSize="14"
+                                    FontFamily="KaiseiBold"
+                                    TextColor="Black" />
+                                <Label 
+                                    Grid.Row="1" 
+                                    Text="{Binding TypeName}"
+                                    FontSize="12"
+                                    FontFamily="Kaisei" />
+                            </Grid>
+                        </FlexLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

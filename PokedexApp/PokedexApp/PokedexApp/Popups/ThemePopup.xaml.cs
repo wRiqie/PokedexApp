@@ -21,26 +21,38 @@ namespace PokedexApp.Popups
             var theme = ThemeManager.CurrentTheme();
             if(theme == ThemeManager.Themes.Pikachu)
             {
+                bulbaBackground.IsVisible = false;
+                meowBackground.IsVisible = false;
+                piBackground.IsVisible = true;
                 bulbasaur.IsVisible = false;
                 mewtwo.IsVisible = false;
                 pikachu.IsVisible = true;
             }
             else if(theme == ThemeManager.Themes.MeowTwo)
             {
+                bulbaBackground.IsVisible = false;
+                meowBackground.IsVisible = true;
+                piBackground.IsVisible = false;
                 bulbasaur.IsVisible = false;
                 mewtwo.IsVisible = true;
                 pikachu.IsVisible = false;
             }
             else
             {
+                bulbaBackground.IsVisible = true;
+                meowBackground.IsVisible = false;
+                piBackground.IsVisible = false;
                 bulbasaur.IsVisible = true;
                 mewtwo.IsVisible = false;
                 pikachu.IsVisible = false;
             }
         }
 
-        private async void BulbasaurTheme(object sender, EventArgs e)
+        private void BulbasaurTheme(object sender, EventArgs e)
         {
+            bulbaBackground.IsVisible = true;
+            meowBackground.IsVisible = false;
+            piBackground.IsVisible = false;
             bulbasaur.IsVisible = true;
             mewtwo.IsVisible = false;
             pikachu.IsVisible = false;
@@ -49,6 +61,9 @@ namespace PokedexApp.Popups
 
         private void MewTwoTheme(object sender, EventArgs e)
         {
+            bulbaBackground.IsVisible = false;
+            meowBackground.IsVisible = true;
+            piBackground.IsVisible = false;
             bulbasaur.IsVisible = false;
             mewtwo.IsVisible = true;
             pikachu.IsVisible = false;
@@ -57,6 +72,9 @@ namespace PokedexApp.Popups
 
         private void PikachuTheme(object sender, EventArgs e)
         {
+            bulbaBackground.IsVisible = false;
+            meowBackground.IsVisible = false;
+            piBackground.IsVisible = true;
             bulbasaur.IsVisible = false;
             mewtwo.IsVisible = false;
             pikachu.IsVisible = true;

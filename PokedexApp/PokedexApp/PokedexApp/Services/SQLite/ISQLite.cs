@@ -11,5 +11,6 @@ namespace PokedexApp.Services.SQLite
         bool Save(object obj);
         bool SaveAll(IEnumerable list);
         List<Pokemon> GetAllPokemons();
+        Pokemon GetPokemon(decimal id);
     }
 }

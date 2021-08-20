@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace PokedexApp.Services.SQLite
@@ -83,8 +84,23 @@ namespace PokedexApp.Services.SQLite
 
             lock (_locker)
             {
-                var a = _conexao.Query<Pokemon>(sql.ToString());
-                return a;
+                return _conexao.Query<Pokemon>(sql.ToString());
+            }
+        }
+
+        public Pokemon GetPokemon(decimal id)
+        {
+            var sql = new StringBuilder();
+            sql.AppendLine("Select Id,");
+            sql.AppendLine("       Name,");
+            sql.AppendLine("       Photo,");
+            sql.AppendLine("       TypeName");
+            sql.AppendLine("From Pokemon");
+            sql.AppendLine($"Where Id = '{id}'");
+
+            lock (_locker)
+            {
+                return _conexao.Query<Pokemon>(sql.ToString()).FirstOrDefault();
             }
         }
         #endregion [ Pokemons ]
