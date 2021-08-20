@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xct:Popup xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             Size="300, 300"
+             x:Class="PokedexApp.Popups.ThemePopup">
+    <StackLayout>
+        <Grid VerticalOptions="CenterAndExpand">
+            <Image 
+                x:Name="bulbasaur"
+                Source="bulbasaur"
+                WidthRequest="250"
+                HeightRequest="250"
+                MinimumHeightRequest="250"
+                MinimumWidthRequest="250"
+                IsVisible="{Binding Bulbasaur}" />
+            <Image 
+                x:Name="mewtwo"
+                Source="mewtwo"
+                WidthRequest="250"
+                HeightRequest="250"
+                MinimumHeightRequest="250"
+                MinimumWidthRequest="250"
+                IsVisible="{Binding MewTwo}" />
+            <Image 
+                x:Name="pikachu"
+                Source="pikachu"
+                WidthRequest="250"
+                HeightRequest="250"
+                MinimumHeightRequest="250"
+                MinimumWidthRequest="250"
+                IsVisible="{Binding Pikachu}" />
+        </Grid>
+        <StackLayout Spacing="5" Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="Center">
+            <Button 
+                Text="Bulbasaur"
+                Clicked="BulbasaurTheme" />
+            <Button 
+                Text="MewTwo"
+                Clicked="MewTwoTheme" />
+            <Button 
+                Text="Pikachu"
+                Clicked="PikachuTheme" />
+        </StackLayout>
+    </StackLayout>
+</xct:Popup>

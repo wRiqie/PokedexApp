@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PokedexApp.ThemeResources.MewTwoTheme">
+
+    <Color x:Key="Primary">#9441bd</Color>
+    <Color x:Key="PrimaryDark">#393952</Color>
+    <Color x:Key="Secondary">#6a319c</Color>
+    <Color x:Key="SecondaryDark">#392052</Color>
+    <Color x:Key="Terciary">#b4acc5</Color>
+    <Color x:Key="TerciaryDark">#837b9c</Color>
+    <Color x:Key="Light">#eee6ee</Color>
+</ResourceDictionary>
