@@ -44,7 +44,7 @@
                 RemainingItemsThreshold="1"
                 RemainingItemsThresholdReachedCommand="{Binding MostrarMaisCommand}"
                 ItemsSource="{Binding Pokemons}" 
-                Margin="0, 10, 0, 0" 
+                Margin="0" 
                 VerticalOptions="FillAndExpand">
                 <CollectionView.Footer>
                     <FlexLayout Direction="Column">
@@ -57,7 +57,7 @@
                 </CollectionView.Footer>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <FlexLayout Margin="10" Direction="Column">
+                        <FlexLayout Padding="10" Direction="Column">
                             <Frame>
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer 
@@ -84,7 +84,6 @@
                                         FontFamily="KleeSemi"
                                         Text="{Binding Name}"/>
                                 </Grid>
-                                
                             </Frame>
                         </FlexLayout>
                     </DataTemplate>

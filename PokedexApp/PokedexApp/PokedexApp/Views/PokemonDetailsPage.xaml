@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:converter="clr-namespace:PokedexApp.Converters"
              x:Class="PokedexApp.Views.PokemonDetailsPage"
-             Title="Detalhes">
+             Title="Details">
     <ContentPage.Content>
         <StackLayout BackgroundColor="{DynamicResource Terciary}">
             <ScrollView>
@@ -11,6 +11,7 @@
                         <Frame 
                             HorizontalOptions="Center"
                             VerticalOptions="Center"
+                            HasShadow="False"
                             WidthRequest="180"
                             HeightRequest="180"
                             CornerRadius="600"
@@ -77,7 +78,12 @@
                         HeightRequest="500"
                         Margin="10"
                         CornerRadius="10">
-                        
+                        <StackLayout> <!--Overview-->
+                            <Label Text="{Binding Pokemon.Name,StringFormat='Name: {0}'}" />
+                            <Label Text="{Binding Pokemon.Weight,StringFormat='Weight: {0}'}" />
+                            <Label Text="{Binding Pokemon.Height,StringFormat='Height: {0}'}" />
+                            <Label Text="{Binding Pokemon.Types,StringFormat='Types: {0}'}" />
+                        </StackLayout>
                     </Frame>
                 </StackLayout>
             </ScrollView>

@@ -7,6 +7,5 @@ namespace PokedexApp.Models
     public class Types
     {
         public TypeDescription Type { get; set; }
-        public string Slot { get; set; }
     }
 }

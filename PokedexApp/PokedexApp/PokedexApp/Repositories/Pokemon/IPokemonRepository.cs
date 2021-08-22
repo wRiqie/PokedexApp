@@ -14,5 +14,8 @@ namespace PokedexApp.Repositories.PokemonRepository
 
         Task<List<Pokemon>> GetAllPokemons();
         Task<Pokemon> GetPokemon(decimal id);
+        ResultadoExecucaoEnum SavePokemonType(TypeDescription pokemonType);
+        ResultadoExecucaoEnum SavePokemonStat(PokemonStats pokemonStat);
+        ResultadoExecucaoEnum SavePokemonAbility(PokemonAbility pokemonAbility);
     }
 }

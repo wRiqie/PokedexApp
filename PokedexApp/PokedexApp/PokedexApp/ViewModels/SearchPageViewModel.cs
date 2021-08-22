@@ -64,7 +64,7 @@ namespace PokedexApp.ViewModels
             {
                 var pokemons = await _pokemonRepository.GetAllPokemons();
                 var pokemonsFiltro = pokemons.Where(x => x.Name.ToLower().Contains(PalavraChave.ToLower()) 
-                || x.TypeName.ToLower().Contains(PalavraChave.ToLower())).ToList();
+                || x.TypeName.ToLower().Contains(PalavraChave.ToLower()) || x.Id.ToString() == PalavraChave).ToList();
                 PokemonsFiltrados = new ObservableCollection<Pokemon>(pokemonsFiltro);
             }
             catch (Exception ex)

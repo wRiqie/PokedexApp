@@ -16,6 +16,11 @@ namespace PokedexApp.Models
         public PokemonSprite Sprites { get; set; }
         [Ignore]
         public List<Types> Types { get; set; }
-
+        [Ignore]
+        public List<PokemonAbility> Abilities { get; set; }
+        [Ignore]
+        public List<PokemonStats> Stats { get; set; }
+        public decimal Weight { get; set; }
+        public decimal Height { get; set; }
     }
 }

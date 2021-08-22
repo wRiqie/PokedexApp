@@ -2780,27 +2780,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\henrique.fernandes\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Users\\Usuario\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\henrique.fernandes\\Downloads\\ProjetosEstudos\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp.Android\\PokedexApp.Android.csproj",
+      "projectUniqueName": "C:\\Users\\Usuario\\Documents\\GitHub\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp.Android\\PokedexApp.Android.csproj",
       "projectName": "PokedexApp.Android",
-      "projectPath": "C:\\Users\\henrique.fernandes\\Downloads\\ProjetosEstudos\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp.Android\\PokedexApp.Android.csproj",
-      "packagesPath": "C:\\Users\\henrique.fernandes\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\henrique.fernandes\\Downloads\\ProjetosEstudos\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp.Android\\obj\\",
+      "projectPath": "C:\\Users\\Usuario\\Documents\\GitHub\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp.Android\\PokedexApp.Android.csproj",
+      "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Usuario\\Documents\\GitHub\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\henrique.fernandes\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -2809,14 +2806,13 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.telerik.com/nuget": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "monoandroid11.0": {
           "projectReferences": {
-            "C:\\Users\\henrique.fernandes\\Downloads\\ProjetosEstudos\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp.csproj": {
-              "projectPath": "C:\\Users\\henrique.fernandes\\Downloads\\ProjetosEstudos\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp.csproj"
+            "C:\\Users\\Usuario\\Documents\\GitHub\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp.csproj": {
+              "projectPath": "C:\\Users\\Usuario\\Documents\\GitHub\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp\\PokedexApp.csproj"
             }
           }
         }

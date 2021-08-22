@@ -42,5 +42,61 @@ namespace PokedexApp.Repositories.PokemonRepository
 
         public async Task<Pokemon> GetPokemon(decimal id)
             => _sqlite.GetPokemon(id);
+
+        public ResultadoExecucaoEnum SavePokemonType(TypeDescription pokemonType)
+        {
+            try
+            {
+                if (_sqlite.Save(pokemonType))
+                {
+                    return ResultadoExecucaoEnum.sucesso;
+                }
+                else
+                {
+                    return ResultadoExecucaoEnum.erro;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ResultadoExecucaoEnum.erro;
+            }
+        }
+
+        public ResultadoExecucaoEnum SavePokemonStat(PokemonStats pokemonStat)
+        {
+            try
+            {
+                if (_sqlite.Save(pokemonStat))
+                {
+                    return ResultadoExecucaoEnum.sucesso;
+                }
+                else
+                {
+                    return ResultadoExecucaoEnum.erro;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ResultadoExecucaoEnum.erro;
+            }
+        }
+        public ResultadoExecucaoEnum SavePokemonAbility(PokemonAbility pokemonAbility)
+        {
+            try
+            {
+                if (_sqlite.Save(pokemonAbility))
+                {
+                    return ResultadoExecucaoEnum.sucesso;
+                }
+                else
+                {
+                    return ResultadoExecucaoEnum.erro;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ResultadoExecucaoEnum.erro;
+            }
+        }
     }
 }

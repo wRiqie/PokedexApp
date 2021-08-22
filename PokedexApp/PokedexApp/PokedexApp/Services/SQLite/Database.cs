@@ -25,6 +25,9 @@ namespace PokedexApp.Services.SQLite
                 {
                     _conexao = new SQLiteConnection(_databasePath);
                     _conexao.CreateTable<Pokemon>();
+                    _conexao.CreateTable<PokemonStats>();
+                    _conexao.CreateTable<TypeDescription>();
+                    _conexao.CreateTable<PokemonAbility>();
                 }
             }
             catch (Exception ex)
@@ -94,6 +97,8 @@ namespace PokedexApp.Services.SQLite
             sql.AppendLine("Select Id,");
             sql.AppendLine("       Name,");
             sql.AppendLine("       Photo,");
+            sql.AppendLine("       Weight,");
+            sql.AppendLine("       Height,");
             sql.AppendLine("       TypeName");
             sql.AppendLine("From Pokemon");
             sql.AppendLine($"Where Id = '{id}'");
@@ -105,5 +110,16 @@ namespace PokedexApp.Services.SQLite
         }
         #endregion [ Pokemons ]
 
+        #region [ Types ]
+
+        #endregion [ Types ]
+
+        #region [ Abilities ]
+
+        #endregion [ Abilities ]
+
+        #region [ Stats ]
+
+        #endregion [ Stats ]
     }
 }
