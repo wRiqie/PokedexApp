@@ -80,6 +80,7 @@ namespace PokedexApp.Repositories.PokemonRepository
                 return ResultadoExecucaoEnum.erro;
             }
         }
+
         public ResultadoExecucaoEnum SavePokemonAbility(PokemonAbility pokemonAbility)
         {
             try
@@ -98,5 +99,14 @@ namespace PokedexApp.Repositories.PokemonRepository
                 return ResultadoExecucaoEnum.erro;
             }
         }
+
+        public async Task<List<TypeDescription>> GetPokemonTypes(decimal pokemonId)
+            => _sqlite.GetPokemonTypes(pokemonId);
+
+        public async Task<List<PokemonStats>> GetPokemonStats(decimal pokemonId)
+            => _sqlite.GetPokemonStats(pokemonId);
+
+        public async Task<List<PokemonAbility>> GetPokemonAbilities(decimal pokemonId)
+            => _sqlite.GetPokemonAbilities(pokemonId);
     }
 }

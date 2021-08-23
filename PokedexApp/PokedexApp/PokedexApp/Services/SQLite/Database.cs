@@ -111,15 +111,73 @@ namespace PokedexApp.Services.SQLite
         #endregion [ Pokemons ]
 
         #region [ Types ]
+        public List<TypeDescription> GetPokemonTypes(decimal PokemonId)
+        {
+            try
+            {
+                var sql = new StringBuilder();
+                sql.AppendLine("Select Name");
+                sql.AppendLine("From TypeDescription ");
+                sql.AppendLine($"Where PokemonId = '{PokemonId}'");
 
+                lock (_locker)
+                {
+                    return _conexao.Query<TypeDescription>(sql.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
         #endregion [ Types ]
 
-        #region [ Abilities ]
-
-        #endregion [ Abilities ]
-
         #region [ Stats ]
+        public List<PokemonStats> GetPokemonStats(decimal PokemonId)
+        {
+            try
+            {
+                var sql = new StringBuilder();
+                sql.AppendLine("Select Base_stat,");
+                sql.AppendLine("       StatName");
+                sql.AppendLine("  From PokemonStats");
+                sql.AppendLine($"Where PokemonId = '{PokemonId}'");
 
+                lock (_locker)
+                {
+                    return _conexao.Query<PokemonStats>(sql.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
         #endregion [ Stats ]
+
+        #region [ Abilities ]
+        public List<PokemonAbility> GetPokemonAbilities(decimal PokemonId)
+        {
+            try
+            {
+                var sql = new StringBuilder();
+                sql.AppendLine("Select AbilityName");
+                sql.AppendLine("From PokemonAbility");
+                sql.AppendLine($"Where PokemonId = '{PokemonId}'");
+
+                lock (_locker)
+                {
+                    return _conexao.Query<PokemonAbility>(sql.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+        #endregion [ Abilities ]
     }
 }

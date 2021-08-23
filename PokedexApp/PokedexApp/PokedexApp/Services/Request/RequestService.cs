@@ -64,7 +64,7 @@ namespace PokedexApp.Services.Request
                         }
                         if (PokePhoto != null)
                         {
-                            pokemon.TypeName = pokemon.Types[0].Type.Name;
+                            pokemon.TypeName = pokemon.Types[0].Type.Name; // TODO - Ajustar para pokemon receber todos os tipos
                             pokemon.Photo = PokePhoto;
                         }
                         // Save type
