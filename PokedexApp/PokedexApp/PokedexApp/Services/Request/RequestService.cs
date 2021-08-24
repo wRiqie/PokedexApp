@@ -70,8 +70,9 @@ namespace PokedexApp.Services.Request
                         // Save type
                         foreach (var type in pokemon.Types)
                         {
-                            type.Type.PokemonId = pokemon.Id;
-                            _pokemonRepository.SavePokemonType(type.Type);
+                            type.PokemonId = pokemon.Id;
+                            type.TypeName = type.Type.Name;
+                            _pokemonRepository.SavePokemonType(type);
                         }
                         foreach (var stat in pokemon.Stats)
                         {

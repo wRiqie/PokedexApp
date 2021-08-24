@@ -43,7 +43,7 @@ namespace PokedexApp.Repositories.PokemonRepository
         public async Task<Pokemon> GetPokemon(decimal id)
             => _sqlite.GetPokemon(id);
 
-        public ResultadoExecucaoEnum SavePokemonType(TypeDescription pokemonType)
+        public ResultadoExecucaoEnum SavePokemonType(Types pokemonType)
         {
             try
             {
@@ -100,7 +100,7 @@ namespace PokedexApp.Repositories.PokemonRepository
             }
         }
 
-        public async Task<List<TypeDescription>> GetPokemonTypes(decimal pokemonId)
+        public async Task<List<Types>> GetPokemonTypes(decimal pokemonId)
             => _sqlite.GetPokemonTypes(pokemonId);
 
         public async Task<List<PokemonStats>> GetPokemonStats(decimal pokemonId)

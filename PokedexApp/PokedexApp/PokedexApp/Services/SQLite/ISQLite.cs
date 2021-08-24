@@ -12,7 +12,7 @@ namespace PokedexApp.Services.SQLite
         bool SaveAll(IEnumerable list);
         List<Pokemon> GetAllPokemons();
         Pokemon GetPokemon(decimal id);
-        List<TypeDescription> GetPokemonTypes(decimal PokemonId);
+        List<Types> GetPokemonTypes(decimal PokemonId);
         List<PokemonStats> GetPokemonStats(decimal PokemonId);
         List<PokemonAbility> GetPokemonAbilities(decimal PokemonId);
     }

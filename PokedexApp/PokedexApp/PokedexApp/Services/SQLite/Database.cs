@@ -26,7 +26,7 @@ namespace PokedexApp.Services.SQLite
                     _conexao = new SQLiteConnection(_databasePath);
                     _conexao.CreateTable<Pokemon>();
                     _conexao.CreateTable<PokemonStats>();
-                    _conexao.CreateTable<TypeDescription>();
+                    _conexao.CreateTable<Types>();
                     _conexao.CreateTable<PokemonAbility>();
                 }
             }
@@ -111,18 +111,18 @@ namespace PokedexApp.Services.SQLite
         #endregion [ Pokemons ]
 
         #region [ Types ]
-        public List<TypeDescription> GetPokemonTypes(decimal PokemonId)
+        public List<Types> GetPokemonTypes(decimal PokemonId)
         {
             try
             {
                 var sql = new StringBuilder();
-                sql.AppendLine("Select Name");
-                sql.AppendLine("From TypeDescription ");
+                sql.AppendLine("Select TypeName");
+                sql.AppendLine("From Types");
                 sql.AppendLine($"Where PokemonId = '{PokemonId}'");
 
                 lock (_locker)
                 {
-                    return _conexao.Query<TypeDescription>(sql.ToString());
+                    return _conexao.Query<Types>(sql.ToString());
                 }
             }
             catch (Exception ex)

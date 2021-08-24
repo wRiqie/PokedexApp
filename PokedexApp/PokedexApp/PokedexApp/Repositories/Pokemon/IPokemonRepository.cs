@@ -14,10 +14,10 @@ namespace PokedexApp.Repositories.PokemonRepository
 
         Task<List<Pokemon>> GetAllPokemons();
         Task<Pokemon> GetPokemon(decimal id);
-        ResultadoExecucaoEnum SavePokemonType(TypeDescription pokemonType);
+        ResultadoExecucaoEnum SavePokemonType(Types pokemonType);
         ResultadoExecucaoEnum SavePokemonStat(PokemonStats pokemonStat);
         ResultadoExecucaoEnum SavePokemonAbility(PokemonAbility pokemonAbility);
-        Task<List<TypeDescription>> GetPokemonTypes(decimal pokemonId);
+        Task<List<Types>> GetPokemonTypes(decimal pokemonId);
         Task<List<PokemonStats>> GetPokemonStats(decimal pokemonId);
         Task<List<PokemonAbility>> GetPokemonAbilities(decimal pokemonId);
     }

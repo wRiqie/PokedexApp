@@ -5,7 +5,7 @@
              Title="Details">
     <ContentPage.Content>
         <StackLayout BackgroundColor="{DynamicResource Terciary}">
-            <ScrollView>
+            <ScrollView Margin="0" Padding="0">
                 <StackLayout>
                     <Grid>
                         <Frame 
@@ -60,38 +60,85 @@
                             Padding="10"
                             TextColor="Black"
                             CharacterSpacing="1.5"
-                            FontAttributes="Bold" />
+                            FontAttributes="Bold">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OverviewCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
                         <Label 
                             Text="Stats"
                             FontSize="12"
                             Padding="10"
                             TextColor="Black"
-                            CharacterSpacing="1.5" />
+                            CharacterSpacing="1.5">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding StatsCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
                         <Label 
                             Text="Abilities"
                             FontSize="12"
                             Padding="10"
                             TextColor="Black"
-                            CharacterSpacing="1.5" />
+                            CharacterSpacing="1.5" >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding AbilitiesCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
                     </FlexLayout>
                     <Frame 
-                        HeightRequest="500"
-                        Margin="10"
-                        CornerRadius="10">
-                        <StackLayout> <!--Overview-->
-                            <Label Text="{Binding PokemonInfo.Name,StringFormat='Name: {0}'}" />
-                            <Label Text="{Binding PokemonInfo.Weight,StringFormat='Weight: {0}'}" />
-                            <Label Text="{Binding PokemonInfo.Height,StringFormat='Height: {0}'}" />
-                            <StackLayout Orientation="Horizontal">
+                        HeightRequest="300"
+                        Margin="10, 0, 10, 0"
+                        Padding="20, 20, 20, 0"
+                        CornerRadius="10"
+                        TranslationY="10">
+                        <Grid>
+                            <StackLayout IsVisible="{Binding OverviewVisible}">
+                                <!--Overview-->
+                                <Label Text="{Binding PokemonInfo.Name,StringFormat='Name: {0}'}" />
+                                <Label Text="{Binding PokemonInfo.Weight,StringFormat='Weight: {0}'}" />
+                                <Label Text="{Binding PokemonInfo.Height,StringFormat='Height: {0}'}" />
                                 <CollectionView ItemsSource="{Binding Types}">
+                                        <CollectionView.ItemsLayout>
+                                            <GridItemsLayout Orientation="Horizontal" />
+                                        </CollectionView.ItemsLayout>
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
+                                                <FlexLayout Padding="0" Margin="0">
+                                                    <Label Text="{Binding TypeName}" FontSize="Title" Margin="10"/>
+                                                </FlexLayout>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                            </StackLayout>
+                            <StackLayout IsVisible="{Binding StatsVisible}">
+                                <!--Stats-->
+                                <CollectionView ItemsSource="{Binding Stats}">
                                     <CollectionView.ItemTemplate>
                                         <DataTemplate>
-                                            <Label Text="{Binding Name}"/>
+                                            <Label>
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="{Binding StatName, StringFormat='{0}: '}"/>
+                                                        <Span Text="{Binding Base_stat}"/>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
                                         </DataTemplate>
                                     </CollectionView.ItemTemplate>
                                 </CollectionView>
                             </StackLayout>
-                        </StackLayout>
+                            <StackLayout IsVisible="{Binding AbilityVisible}">
+                                <!--Abilities-->
+                                <CollectionView ItemsSource="{Binding Abilities}">
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Label Text="{Binding AbilityName}" />
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </StackLayout>
+                        </Grid>
                     </Frame>
                 </StackLayout>
             </ScrollView>
