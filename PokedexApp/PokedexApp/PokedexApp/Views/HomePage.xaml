@@ -78,11 +78,27 @@
                                         MinimumWidthRequest="150" />
                                     <Label 
                                         Grid.Row="1"
-                                        HorizontalTextAlignment="Center"
+                                        HorizontalTextAlignment="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span 
+                                                    TextColor="Black"
+                                                    FontSize="24"
+                                                    FontFamily="KleeSemi"
+                                                    Text="{Binding Name}"/>
+                                                <Span Text= "&#10;" />
+                                                <Span
+                                                    FontSize="Subtitle"
+                                                    FontFamily="Klee"
+                                                    Text="{Binding TypeName}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label
                                         TextColor="Black"
-                                        FontSize="Title"
-                                        FontFamily="KleeSemi"
-                                        Text="{Binding Name}"/>
+                                        FontSize="20"
+                                        FontFamily="KleeSemi" 
+                                        Text="{Binding Id, StringFormat='#{0}'}" />
                                 </Grid>
                             </Frame>
                         </FlexLayout>

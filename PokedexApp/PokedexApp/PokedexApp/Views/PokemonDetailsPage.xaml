@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:converter="clr-namespace:PokedexApp.Converters"
              x:Class="PokedexApp.Views.PokemonDetailsPage"
              Title="Details">
+
     <ContentPage.Content>
         <StackLayout BackgroundColor="{DynamicResource Terciary}">
             <ScrollView Margin="0" Padding="0">
@@ -95,45 +96,86 @@
                         <Grid>
                             <StackLayout IsVisible="{Binding OverviewVisible}">
                                 <!--Overview-->
-                                <Label Text="{Binding PokemonInfo.Name,StringFormat='Name: {0}'}" />
-                                <Label Text="{Binding PokemonInfo.Weight,StringFormat='Weight: {0}'}" />
-                                <Label Text="{Binding PokemonInfo.Height,StringFormat='Height: {0}'}" />
-                                <CollectionView ItemsSource="{Binding Types}">
+                                <FlexLayout JustifyContent="SpaceBetween" Margin="0, 0, 0, 10">
+                                    <Label Text="Name" />
+                                    <Label 
+                                        Text="{Binding PokemonInfo.Name}" 
+                                        WidthRequest="200"
+                                        TextColor="Black"
+                                        FontFamily="KleeSemi"/>
+                                </FlexLayout>
+                                <FlexLayout JustifyContent="SpaceBetween" Margin="0, 0, 0, 10">
+                                    <Label Text="Weight" />
+                                    <Label 
+                                        Text="{Binding PokemonInfo.Weight, StringFormat='{0}'}"
+                                        WidthRequest="200"
+                                        TextColor="Black"
+                                        FontFamily="KleeSemi" />
+                                </FlexLayout>
+                                <FlexLayout JustifyContent="SpaceBetween" Margin="0, 0, 0, 10">
+                                    <Label Text="Height" />
+                                    <Label 
+                                        Text="{Binding PokemonInfo.Height}" 
+                                        WidthRequest="200"
+                                        TextColor="Black"
+                                        FontFamily="KleeSemi" />
+                                </FlexLayout>
+                                <FlexLayout JustifyContent="SpaceBetween">
+                                    <Label Text="Types"/>
+                                    <CollectionView ItemsSource="{Binding Types}" WidthRequest="200" >
                                         <CollectionView.ItemsLayout>
                                             <GridItemsLayout Orientation="Horizontal" />
                                         </CollectionView.ItemsLayout>
                                         <CollectionView.ItemTemplate>
                                             <DataTemplate>
-                                                <FlexLayout Padding="0" Margin="0">
-                                                    <Label Text="{Binding TypeName}" FontSize="Title" Margin="10"/>
+                                                <FlexLayout Padding="0" Margin="0, 0, 20, 0">
+                                                    <Label 
+                                                        Text="{Binding TypeName}" 
+                                                        TextColor="Black"
+                                                        FontFamily="KleeSemi" />
                                                 </FlexLayout>
                                             </DataTemplate>
                                         </CollectionView.ItemTemplate>
                                     </CollectionView>
+                                </FlexLayout>
+
                             </StackLayout>
-                            <StackLayout IsVisible="{Binding StatsVisible}">
-                                <!--Stats-->
+                            <!--Stats-->
+                            <StackLayout IsVisible="{Binding StatsVisible}" Orientation="Horizontal">
                                 <CollectionView ItemsSource="{Binding Stats}">
                                     <CollectionView.ItemTemplate>
                                         <DataTemplate>
-                                            <Label>
-                                                <Label.FormattedText>
-                                                    <FormattedString>
-                                                        <Span Text="{Binding StatName, StringFormat='{0}: '}"/>
-                                                        <Span Text="{Binding Base_stat}"/>
-                                                    </FormattedString>
-                                                </Label.FormattedText>
-                                            </Label>
+                                            <StackLayout Orientation="Horizontal" Padding="0, 0, 0, 15">
+                                                <Label 
+                                                    HorizontalOptions="StartAndExpand"
+                                                    Text="{Binding StatName}" />
+                                                <Label 
+                                                    Text="{Binding Base_stat}"
+                                                    FontAttributes="Bold"
+                                                    WidthRequest="20"
+                                                    TextColor="Black"
+                                                    Margin="10, 0"
+                                                    />
+                                                <ProgressBar 
+                                                    WidthRequest="150"
+                                                    ProgressColor="#50C878"
+                                                    Opacity="0.7"
+                                                    Progress="{Binding ProgressValue}"/>
+                                            </StackLayout>
                                         </DataTemplate>
                                     </CollectionView.ItemTemplate>
                                 </CollectionView>
                             </StackLayout>
                             <StackLayout IsVisible="{Binding AbilityVisible}">
                                 <!--Abilities-->
-                                <CollectionView ItemsSource="{Binding Abilities}">
+                                <CollectionView ItemsSource="{Binding Abilities}" >
                                     <CollectionView.ItemTemplate>
                                         <DataTemplate>
-                                            <Label Text="{Binding AbilityName}" />
+                                            <Label 
+                                                Text="{Binding AbilityName}"
+                                                TextColor="Black"
+                                                FontSize="Title"
+                                                FontFamily="KleeSemi"/>
                                         </DataTemplate>
                                     </CollectionView.ItemTemplate>
                                 </CollectionView>

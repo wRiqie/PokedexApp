@@ -139,7 +139,10 @@ namespace PokedexApp.Services.SQLite
             try
             {
                 var sql = new StringBuilder();
-                sql.AppendLine("Select Base_stat,");
+                sql.AppendLine("Select Id,");
+                sql.AppendLine("       PokemonId,");
+                sql.AppendLine("       ProgressValue,");
+                sql.AppendLine("       Base_stat,");
                 sql.AppendLine("       StatName");
                 sql.AppendLine("  From PokemonStats");
                 sql.AppendLine($"Where PokemonId = '{PokemonId}'");

@@ -112,6 +112,17 @@ namespace PokedexApp.ViewModels
             Stats = new ObservableCollection<PokemonStats>(await _pokemonRepository.GetPokemonStats(id));
             Abilities = new ObservableCollection<PokemonAbility>(await _pokemonRepository.GetPokemonAbilities(id));
             Types = new ObservableCollection<Types>(await _pokemonRepository.GetPokemonTypes(id));
+
+            if (Stats[0].ProgressValue <= 0)
+            {
+                foreach (var stat in Stats)
+                {
+                    var value = decimal.ToDouble(stat.Base_stat);
+                    var formatedValue = value / 100;
+                    stat.ProgressValue = formatedValue;
+                    _pokemonRepository.SavePokemonStat(stat);
+                }
+            }
         }
 
         private async Task AbilitiesCommandExecute()

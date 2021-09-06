@@ -12,6 +12,7 @@ namespace PokedexApp.Models
         public decimal Base_stat { get; set; }
         public string StatName { get; set; }
         public decimal PokemonId { get; set; }
+        public double ProgressValue { get; set; }
 
         [Ignore]
         public StatDescription Stat { get; set; }

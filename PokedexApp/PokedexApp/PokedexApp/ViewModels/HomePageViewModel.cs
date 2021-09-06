@@ -79,7 +79,7 @@ namespace PokedexApp.ViewModels
             IsLoading = false;
             Pokemons = new ObservableCollection<Pokemon>();
             Indice = 1;
-            IndiceFinal = 15;
+            IndiceFinal = 50;
             Count = 0;
 
             MostrarMaisCommand = new DelegateCommand(async () => await MostrarMaisCommandExecute());
@@ -151,7 +151,7 @@ namespace PokedexApp.ViewModels
                             Count++;
                             IsLoading = true;
                             Indice = Pokemons.Count + 1;
-                            IndiceFinal = Pokemons.Count + 10;
+                            IndiceFinal = Pokemons.Count + 50;
                             var pokemons = await _requestService.GetPokemons(IndiceFinal, Indice);
                             if (pokemons != null && pokemons.Count > 0)
                             {
